@@ -24,6 +24,7 @@ export default defineConfig({
 	extends: ['@commitlint/config-conventional'], // extends can be nested
 	parserPreset: 'conventional-changelog-conventionalcommits',
 	rules: {
+		'subject-case': [0],
 		// -- 允许的 scope 列表
 		'scope-enum': [2, 'always', scopes],
 		// -- body 最长 1000 字符
