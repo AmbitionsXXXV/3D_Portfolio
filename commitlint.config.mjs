@@ -27,6 +27,8 @@ export default defineConfig({
 		'subject-case': [0],
 		// -- 允许的 scope 列表
 		'scope-enum': [2, 'always', scopes],
+		// -- header 最长 100 字符
+		'header-max-length': [2, 'always', 300],
 		// -- body 最长 1000 字符
 		'body-max-line-length': [2, 'always', 1000],
 		// -- 允许的 type 列表，增加 init

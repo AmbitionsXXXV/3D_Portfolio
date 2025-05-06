@@ -4,8 +4,17 @@ const Button = ({
 	id,
 }: { text: string; className: string; id: string }) => {
 	return (
-		// biome-ignore lint/a11y/useButtonType: <explanation>
 		<button
+			type="button"
+			/**
+			 * Smoothly scrolls to the section with the given ID.
+			 * @param {React.MouseEvent<HTMLButtonElement>} e - The event that triggered this function.
+			 * @param {string} id - The ID of the section to scroll to.
+			 *
+			 * This function prevents the link from jumping instantly, and if the section is not found,
+			 * it does not scroll at all. It also prevents the contact button from scrolling to the top
+			 * by only scrolling if an ID is passed in.
+			 */
 			onClick={(e) => {
 				e.preventDefault() // Stop the link from jumping instantly
 

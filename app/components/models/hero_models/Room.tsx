@@ -11,7 +11,8 @@ import * as THREE from 'three'
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function Room(props: any) {
-	const { nodes, materials } = useGLTF('/models/optimized-room.glb')
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	const { nodes, materials } = useGLTF('/models/optimized-room.glb') as any
 	const screensRef = useRef<THREE.Object3D>(null)
 	const matcapTexture = useTexture('/images/textures/mat1.png')
 
@@ -67,7 +68,12 @@ export function Room(props: any) {
 				geometry={nodes.emis_lambert1_0.geometry}
 				material={materials.lambert1}
 			/>
-			<mesh geometry={nodes.handls_blinn1_0.geometry} material={materials.blinn1} />
+			<mesh
+				geometry={(nodes.handls_blinn1_0 as THREE.Mesh).geometry}
+				material={materials.blinn1}
+			>
+				{/* -- 类型 断言 -- 明确 指出 nodes.handls_blinn1_0 是 一个 THREE.Mesh 对象 */}
+			</mesh>
 			<mesh
 				geometry={nodes.keyboard_blinn1_0.geometry}
 				material={materials.blinn1}

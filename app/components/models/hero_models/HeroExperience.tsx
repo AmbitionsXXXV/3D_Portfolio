@@ -2,6 +2,8 @@ import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import HeroLights from '~/components/models/hero_models/HeroLights'
+import Particles from '~/components/models/hero_models/Particles'
 import { Room } from '~/components/models/hero_models/Room'
 
 const HeroExperience = () => {
@@ -23,6 +25,8 @@ const HeroExperience = () => {
 			/>
 
 			<Suspense fallback={null}>
+				<HeroLights />
+				<Particles count={300} />
 				<group
 					scale={isMobile ? 0.7 : 1}
 					position={[0, -3.5, 0]}
